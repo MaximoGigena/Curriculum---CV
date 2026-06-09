@@ -1,22 +1,22 @@
 <!-- Sección de Servicios -->
 <template>
-  <section id="servicios" class="py-16 md:py-24 bg-transparent from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 overflow-x-hidden overflow-y-visible">
+  <section id="servicios" class="py-16 md:py-24 bg-transparent overflow-x-hidden overflow-y-visible">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 overflow-visible">
       
-      <!-- Encabezado de sección -->
+      <!-- Encabezado de sección - TOTALMENTE CLARO -->
       <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-        <div class="inline-flex items-center gap-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-4 py-2 rounded-full text-sm font-medium mb-4">
+        <div class="inline-flex items-center gap-2 bg-purple-500/20 backdrop-blur-sm text-purple-300 px-4 py-2 rounded-full text-sm font-medium mb-4 border border-purple-500/30">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
           </svg>
           <span>Qué ofrezco</span>
         </div>
         
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          Soluciones digitales <span class="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">a tu medida</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-lg">
+          Soluciones digitales <span class="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">a tu medida</span>
         </h2>
         
-        <p class="text-lg text-gray-600 dark:text-gray-400">
+        <p class="text-lg text-gray-200">
           Transformo tus ideas en productos digitales funcionales, atractivos y de alto rendimiento
         </p>
       </div>
@@ -31,7 +31,7 @@
       </div>
 
       <!-- Sección de metodología de trabajo -->
-      <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+      <div class="mt-12 pt-8 border-t border-white/20">
         <MetodologiaTrabajo />
       </div>
     </div>
@@ -59,7 +59,7 @@ const serviciosBase = [
       'Diseño responsive y mobile-first',
       'Optimización SEO y rendimiento'
     ],
-    precio: 'Desde <span class="text-purple-600 dark:text-purple-400">€800</span>',
+    precio: 'Desde <span class="text-purple-300">€800</span>',
     precioNota: 'Proyecto base · Cotización personalizada',
     detalles: {
       descripcionCompleta: 'Creación de sitios web y aplicaciones web modernas utilizando las últimas tecnologías del ecosistema JavaScript. Me enfoco en construir productos rápidos, accesibles y optimizados para SEO.',
@@ -84,7 +84,7 @@ const serviciosBase = [
       'Panel de administración personalizado',
       'Gestión de productos y variantes'
     ],
-    precio: 'Desde <span class="text-blue-600 dark:text-blue-400">€1,500</span>',
+    precio: 'Desde <span class="text-blue-300">€1,500</span>',
     precioNota: 'Incluye pasarela de pago básica',
     detalles: {
       descripcionCompleta: 'Soluciones completas de e-commerce para que puedas vender tus productos online de manera segura y profesional. Integración con las principales pasarelas de pago.',
@@ -109,10 +109,10 @@ const serviciosBase = [
       'Soluciones personalizadas y escalables acordes a tu negocio.',
       'Enfoque en soluciones certeras y eficientes.'
     ],
-    precio: 'Desde <span class="text-green-600 dark:text-green-400">€2,500</span>',
+    precio: 'Desde <span class="text-green-300">€2,500</span>',
     precioNota: 'Para proyectos complejos o a medida',
     detalles: {
-      descripcionCompleta: 'Desarrollo de soluciones eficientes orientadas a tu modelo de negocio y a las necesidades epecificas del mismo.',
+      descripcionCompleta: 'Desarrollo de soluciones eficientes orientadas a tu modelo de negocio y a las necesidades específicas del mismo.',
       incluye: [
         'Análisis detallado de requerimientos',
         'Relevamiento de procesos y flujos de trabajo',
@@ -132,7 +132,7 @@ const serviciosBase = [
       'Code reviews y mentoring',
       'Definición de arquitectura y stack tecnológico'
     ],
-    precio: '<span class="text-orange-600 dark:text-orange-400">€80/hora</span>',
+    precio: '<span class="text-orange-300">€80/hora</span>',
     precioNota: 'Paquetes de horas disponibles',
     detalles: {
       descripcionCompleta: 'Asesoramiento experto para mejorar la calidad técnica de tus proyectos. Ideal para equipos que buscan escalar o mejorar su código.',
@@ -155,7 +155,7 @@ const serviciosBase = [
       'Backups regulares y monitoreo 24/7',
       'Soporte prioritario y resolución rápida'
     ],
-    precio: 'Desde <span class="text-red-600 dark:text-red-400">€150/mes</span>',
+    precio: 'Desde <span class="text-red-300">€150/mes</span>',
     precioNota: 'Plan básico · Sin permanencia',
     detalles: {
       descripcionCompleta: 'Servicio continuo para mantener tu web o app siempre actualizada, segura y funcionando correctamente.',
@@ -178,7 +178,7 @@ const serviciosBase = [
       'Pruebas de usabilidad y research',
       'Diseño responsive y sistemas de diseño'
     ],
-    precio: 'Desde <span class="text-pink-600 dark:text-pink-400">€600</span>',
+    precio: 'Desde <span class="text-pink-300">€600</span>',
     precioNota: 'Landing page o hasta 5 pantallas',
     detalles: {
       descripcionCompleta: 'Diseño de interfaces centradas en el usuario que no solo se ven bien, sino que convierten. Utilizo Figma para crear prototipos interactivos.',
