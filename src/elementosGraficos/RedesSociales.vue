@@ -1,10 +1,10 @@
-<<template>
-  <div class="redes-sociales-container rounded-xl p-6 tarjeta-gradiente">
-    <h3 class="font-semibold text-gray-900 dark:text-white mb-4 text-center lg:text-left">
+<template>
+  <div class="tarjeta-gradiente bg-gray-900/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
+    <h3 class="font-semibold text-white mb-4 text-center lg:text-left">
       Encuéntrame también en:
     </h3>
     
-    <!-- Grid responsivo para mejor espaciado -->
+    <!-- Grid responsivo -->
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 justify-items-center">
       
       <!-- LinkedIn -->
@@ -97,29 +97,15 @@ const props = defineProps({
 </script>
 
 <style scoped>
-/* Contenedor con fondo más oscuro en modo claro */
-.redes-sociales-container {
+/* Mismo estilo que las tarjetas del padre */
+.tarjeta-gradiente {
   position: relative;
   background-clip: padding-box;
   border: solid 2px transparent;
   transition: all 0.3s ease;
-  /* Mejor fondo para modo claro - más contraste */
-  background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
 }
 
-/* Modo oscuro: fondo oscuro */
-@media (prefers-color-scheme: dark) {
-  .redes-sociales-container {
-    background: linear-gradient(135deg, #1f2937 0%, #1f2937 100%);
-  }
-}
-
-/* Si usas clase dark manualmente */
-.dark .redes-sociales-container {
-  background: linear-gradient(135deg, #1f2937 0%, #1f2937 100%);
-}
-
-.redes-sociales-container::before {
+.tarjeta-gradiente::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -136,7 +122,7 @@ const props = defineProps({
   animation: gradientShift 3s ease infinite;
 }
 
-.redes-sociales-container:hover::before {
+.tarjeta-gradiente:hover::before {
   opacity: 1;
 }
 
@@ -159,7 +145,6 @@ const props = defineProps({
   height: 60px;
 }
 
-/* Sombras más visibles en modo claro - ajustadas */
 .boton-sombra-3d {
   position: absolute;
   width: 100%;
@@ -171,7 +156,6 @@ const props = defineProps({
   backdrop-filter: blur(4px);
 }
 
-/* Sombras mejoradas con más contraste en modo claro */
 .sombra-linkedin { 
   background: rgba(0, 119, 181, 0.35);
   box-shadow: 0 8px 20px rgba(0, 119, 181, 0.25);
@@ -189,7 +173,6 @@ const props = defineProps({
   box-shadow: 0 8px 20px rgba(214, 41, 118, 0.25);
 }
 
-/* Botón principal - EFECTO CRISTALINO mejorado para claro */
 .boton-3d {
   position: relative;
   width: 100%;
@@ -204,14 +187,13 @@ const props = defineProps({
   transition: all 0.3s ease;
   transform: rotate(-32deg) skewX(-16deg);
   z-index: 1;
-  /* Cristal más opaco para modo claro */
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
-/* Modo oscuro: más transparente */
+/* Modo oscuro */
 @media (prefers-color-scheme: dark) {
   .boton-3d {
     background: rgba(255, 255, 255, 0.15);
@@ -224,7 +206,6 @@ const props = defineProps({
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Íconos - más oscuros en modo claro para contraste */
 .boton-3d .icono {
   width: 28px;
   height: 28px;
@@ -233,7 +214,6 @@ const props = defineProps({
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.1));
 }
 
-/* Modo oscuro: íconos blancos */
 @media (prefers-color-scheme: dark) {
   .boton-3d .icono {
     color: white;
@@ -255,7 +235,6 @@ const props = defineProps({
   text-shadow: none;
 }
 
-/* Modo oscuro: tooltip blanco */
 @media (prefers-color-scheme: dark) {
   .boton-3d .tooltip {
     color: white;
@@ -266,7 +245,6 @@ const props = defineProps({
   color: white;
 }
 
-/* ========== HOVER - COLORES CARACTERÍSTICOS ========== */
 .boton-3d:hover {
   transform: rotate(-8deg) skewX(-2deg) translateY(-6px) scale(1.05);
   backdrop-filter: blur(0px);
@@ -277,23 +255,19 @@ const props = defineProps({
   background: #0077b5;
   box-shadow: 0 8px 25px rgba(0, 119, 181, 0.4);
 }
-
 .boton-github:hover { 
   background: #24292e;
   box-shadow: 0 8px 25px rgba(36, 41, 46, 0.4);
 }
-
 .boton-facebook:hover { 
   background: #1877f2;
   box-shadow: 0 8px 25px rgba(24, 119, 242, 0.4);
 }
-
 .boton-instagram:hover { 
   background: linear-gradient(135deg, #feda77, #d62976, #962fbf, #4f5bd5);
   box-shadow: 0 8px 25px rgba(214, 41, 118, 0.4);
 }
 
-/* Hover: íconos blancos */
 .boton-3d:hover .icono {
   color: white !important;
   transform: scale(1.1);
@@ -309,7 +283,6 @@ const props = defineProps({
   transform: rotate(-8deg) skewX(-2deg) translate(4px, 4px);
 }
 
-/* Brillo superior */
 .boton-3d::before {
   content: '';
   position: absolute;
@@ -328,7 +301,6 @@ const props = defineProps({
   opacity: 0;
 }
 
-/* Responsive */
 @media (max-width: 640px) {
   .boton-3d-wrapper {
     max-width: 110px;
@@ -346,9 +318,6 @@ const props = defineProps({
   .boton-3d .icono {
     width: 24px;
     height: 24px;
-  }
-  .boton-3d:hover {
-    transform: rotate(-6deg) skewX(-2deg) translateY(-5px) scale(1.05);
   }
   .boton-3d .tooltip {
     font-size: 9px;
