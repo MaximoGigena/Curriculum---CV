@@ -97,7 +97,7 @@ const props = defineProps({
 </script>
 
 <style scoped>
-/* Mismo estilo que las tarjetas del padre */
+/* Mismo estilo que las tarjetas del padre - COPY PASTE IDÉNTICO */
 .tarjeta-gradiente {
   position: relative;
   background-clip: padding-box;
@@ -193,7 +193,6 @@ const props = defineProps({
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
-/* Modo oscuro */
 @media (prefers-color-scheme: dark) {
   .boton-3d {
     background: rgba(255, 255, 255, 0.15);
