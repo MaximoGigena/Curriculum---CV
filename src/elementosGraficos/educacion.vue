@@ -261,7 +261,7 @@
           </h3>
           
           <div class="max-w-2xl mx-auto">
-            <div class="bg-gray-900/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-2xl border border-gray-700">
+            <div ref="softSkillsCodeBlock" class="bg-gray-900/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-2xl border border-gray-700">
               <div class="bg-gray-800/80 px-4 py-2 flex items-center gap-2 border-b border-gray-700">
                 <div class="flex gap-2">
                   <div class="w-3 h-3 rounded-full bg-red-500"></div>
@@ -323,20 +323,6 @@
             
             <div class="bg-gray-900/90 backdrop-blur-sm rounded-xl p-4 shadow-md hover:shadow-lg transition border border-gray-700">
               <div class="flex items-start gap-3">
-                <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-blue-500/30">
-                  <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-white">AWS Certified Developer</h4>
-                  <p class="text-sm text-gray-300">Amazon Web Services · 2024</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="bg-gray-900/90 backdrop-blur-sm rounded-xl p-4 shadow-md hover:shadow-lg transition border border-gray-700">
-              <div class="flex items-start gap-3">
                 <div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-purple-500/30">
                   <svg class="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
@@ -362,6 +348,21 @@
                 </div>
               </div>
             </div>
+
+            <div class="bg-gray-900/90 backdrop-blur-sm rounded-xl p-4 shadow-md hover:shadow-lg transition border border-gray-700">
+              <div class="flex items-start gap-3">
+                <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-blue-500/30">
+                  <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white">AWS Certified Developer</h4>
+                  <p class="text-sm text-gray-300">Amazon Web Services · 2026</p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -379,8 +380,10 @@ const movingCircle = ref(null)
 const educationSection = ref(null)
 const isAnimating = ref(false)
 const hasAnimated = ref(false)
+const softSkillsCodeBlock = ref(null)
 let observer = null
 let animationTimeout = null
+let softSkillsObserver = null  
 
 // Posiciones exactas donde debe pararse el círculo (en píxeles)
 const stopPositions = [0, 220, 440, 660]
@@ -518,11 +521,9 @@ const setupVisibilityDetection = () => {
 }
 
 // Observer para soft skills
-let softSkillsObserver = null
 
 const setupSoftSkillsObserver = () => {
-  const softSkillsElement = document.querySelector('.bg-gray-900')
-  if (!softSkillsElement) return
+  if (!softSkillsCodeBlock.value) return
   
   softSkillsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -533,7 +534,7 @@ const setupSoftSkillsObserver = () => {
     })
   }, { threshold: 0.3 })
   
-  softSkillsObserver.observe(softSkillsElement)
+  softSkillsObserver.observe(softSkillsCodeBlock.value)
 }
 
 onMounted(() => {

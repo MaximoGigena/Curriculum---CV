@@ -1,5 +1,5 @@
-<template>
-  <div class="redes-sociales-container bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-800 rounded-xl p-6 tarjeta-gradiente">
+<<template>
+  <div class="redes-sociales-container rounded-xl p-6 tarjeta-gradiente">
     <h3 class="font-semibold text-gray-900 dark:text-white mb-4 text-center lg:text-left">
       Encuéntrame también en:
     </h3>
@@ -15,9 +15,7 @@
         class="red-social-diagonal w-full flex justify-center"
       >
         <div class="boton-3d-wrapper">
-          <!-- Rectángulo de sombra inferior (efecto 3D) -->
           <div class="boton-sombra-3d sombra-linkedin"></div>
-          <!-- Botón principal -->
           <div class="boton-3d boton-linkedin">
             <svg class="icono" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451c.979 0 1.771-.773 1.771-1.729V1.729C24 .774 23.222 0 22.225 0z"/>
@@ -85,27 +83,40 @@
 </template>
 
 <script setup>
-// Props para las URLs de redes sociales
 const props = defineProps({
   redes: {
     type: Object,
     default: () => ({
       linkedin: 'https://linkedin.com/in/maximo-gigena',
       github: 'https://github.com/MaximoGigena',
-      facebook: 'https://facebook.com/maximo.gigena', // Usa tu username real
-      instagram: 'https://instagram.com/maximo._.cid' // Sin parámetros
+      facebook: 'https://facebook.com/maximo.gigena',
+      instagram: 'https://instagram.com/maximo._.cid'
     })
   }
 })
 </script>
 
 <style scoped>
-/* Tu contenedor con borde animado original */
+/* Contenedor con fondo más oscuro en modo claro */
 .redes-sociales-container {
   position: relative;
   background-clip: padding-box;
   border: solid 2px transparent;
   transition: all 0.3s ease;
+  /* Mejor fondo para modo claro - más contraste */
+  background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
+}
+
+/* Modo oscuro: fondo oscuro */
+@media (prefers-color-scheme: dark) {
+  .redes-sociales-container {
+    background: linear-gradient(135deg, #1f2937 0%, #1f2937 100%);
+  }
+}
+
+/* Si usas clase dark manualmente */
+.dark .redes-sociales-container {
+  background: linear-gradient(135deg, #1f2937 0%, #1f2937 100%);
 }
 
 .redes-sociales-container::before {
@@ -141,7 +152,6 @@ const props = defineProps({
   text-decoration: none;
 }
 
-/* Wrapper que contiene el botón y su sombra 3D */
 .boton-3d-wrapper {
   position: relative;
   width: 100%;
@@ -149,7 +159,7 @@ const props = defineProps({
   height: 60px;
 }
 
-/* Rectángulo de sombra (efecto 3D debajo y al costado) - ahora más sutil y cristalino */
+/* Sombras más visibles en modo claro - ajustadas */
 .boton-sombra-3d {
   position: absolute;
   width: 100%;
@@ -161,25 +171,25 @@ const props = defineProps({
   backdrop-filter: blur(4px);
 }
 
-/* Colores de sombra específicos para cada botón - más transparentes */
+/* Sombras mejoradas con más contraste en modo claro */
 .sombra-linkedin { 
-  background: rgba(0, 119, 181, 0.25);
-  box-shadow: 0 8px 20px rgba(0, 119, 181, 0.15);
+  background: rgba(0, 119, 181, 0.35);
+  box-shadow: 0 8px 20px rgba(0, 119, 181, 0.25);
 }
 .sombra-github { 
-  background: rgba(36, 41, 46, 0.25);
-  box-shadow: 0 8px 20px rgba(36, 41, 46, 0.15);
+  background: rgba(36, 41, 46, 0.35);
+  box-shadow: 0 8px 20px rgba(36, 41, 46, 0.25);
 }
 .sombra-facebook { 
-  background: rgba(24, 119, 242, 0.25);
-  box-shadow: 0 8px 20px rgba(24, 119, 242, 0.15);
+  background: rgba(24, 119, 242, 0.35);
+  box-shadow: 0 8px 20px rgba(24, 119, 242, 0.25);
 }
 .sombra-instagram { 
-  background: rgba(214, 41, 118, 0.25);
-  box-shadow: 0 8px 20px rgba(214, 41, 118, 0.15);
+  background: rgba(214, 41, 118, 0.35);
+  box-shadow: 0 8px 20px rgba(214, 41, 118, 0.25);
 }
 
-/* Botón principal - EFECTO CRISTALINO (glassmorphism) */
+/* Botón principal - EFECTO CRISTALINO mejorado para claro */
 .boton-3d {
   position: relative;
   width: 100%;
@@ -194,83 +204,112 @@ const props = defineProps({
   transition: all 0.3s ease;
   transform: rotate(-32deg) skewX(-16deg);
   z-index: 1;
-  /* Efecto vidrio/cristal */
+  /* Cristal más opaco para modo claro */
   backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
-/* El ícono */
+/* Modo oscuro: más transparente */
+@media (prefers-color-scheme: dark) {
+  .boton-3d {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+.dark .boton-3d {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Íconos - más oscuros en modo claro para contraste */
 .boton-3d .icono {
   width: 28px;
   height: 28px;
-  color: white;
+  color: #1f2937;
   transition: all 0.3s ease;
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.1));
 }
 
-/* Tooltip también inclinado */
+/* Modo oscuro: íconos blancos */
+@media (prefers-color-scheme: dark) {
+  .boton-3d .icono {
+    color: white;
+  }
+}
+
+.dark .boton-3d .icono {
+  color: white;
+}
+
 .boton-3d .tooltip {
   font-size: 10px;
   font-weight: 600;
-  color: white;
+  color: #1f2937;
   opacity: 0;
   transform: translateY(5px);
   transition: all 0.3s ease;
   letter-spacing: 0.5px;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  text-shadow: none;
 }
 
-/* ========== HOVER - COLORES CARACTERÍSTICOS (opacos, sólidos) ========== */
+/* Modo oscuro: tooltip blanco */
+@media (prefers-color-scheme: dark) {
+  .boton-3d .tooltip {
+    color: white;
+  }
+}
+
+.dark .boton-3d .tooltip {
+  color: white;
+}
+
+/* ========== HOVER - COLORES CARACTERÍSTICOS ========== */
 .boton-3d:hover {
   transform: rotate(-8deg) skewX(-2deg) translateY(-6px) scale(1.05);
-  /* Al hacer hover, pierde transparencia y toma el color sólido de la red social */
   backdrop-filter: blur(0px);
   border: none;
 }
 
-/* LinkedIn hover - color sólido característico */
 .boton-linkedin:hover { 
   background: #0077b5;
   box-shadow: 0 8px 25px rgba(0, 119, 181, 0.4);
 }
 
-/* GitHub hover */
 .boton-github:hover { 
   background: #24292e;
   box-shadow: 0 8px 25px rgba(36, 41, 46, 0.4);
 }
 
-/* Facebook hover */
 .boton-facebook:hover { 
   background: #1877f2;
   box-shadow: 0 8px 25px rgba(24, 119, 242, 0.4);
 }
 
-/* Instagram hover - gradiente característico */
 .boton-instagram:hover { 
   background: linear-gradient(135deg, #feda77, #d62976, #962fbf, #4f5bd5);
   box-shadow: 0 8px 25px rgba(214, 41, 118, 0.4);
 }
 
-/* Al hacer hover, la sombra también se mueve */
+/* Hover: íconos blancos */
+.boton-3d:hover .icono {
+  color: white !important;
+  transform: scale(1.1);
+}
+
+.boton-3d:hover .tooltip {
+  opacity: 1;
+  transform: translateY(0);
+  color: white !important;
+}
+
 .boton-3d-wrapper:hover .boton-sombra-3d {
   transform: rotate(-8deg) skewX(-2deg) translate(4px, 4px);
 }
 
-/* Hover: ícono crece */
-.boton-3d:hover .icono {
-  transform: scale(1.1);
-}
-
-/* Hover: tooltip se muestra */
-.boton-3d:hover .tooltip {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Efecto de luz superior (brillo) */
+/* Brillo superior */
 .boton-3d::before {
   content: '';
   position: absolute;
@@ -278,7 +317,7 @@ const props = defineProps({
   left: 0;
   right: 0;
   height: 40%;
-  background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 100%);
   border-radius: 12px 12px 0 0;
   opacity: 0.6;
   transition: opacity 0.3s ease;
@@ -289,7 +328,7 @@ const props = defineProps({
   opacity: 0;
 }
 
-/* Ajuste responsive */
+/* Responsive */
 @media (max-width: 640px) {
   .boton-3d-wrapper {
     max-width: 110px;
@@ -333,12 +372,6 @@ const props = defineProps({
   .boton-3d .icono {
     width: 22px;
     height: 22px;
-  }
-  .boton-3d .tooltip {
-    font-size: 8px;
-  }
-  .boton-3d:hover {
-    transform: rotate(-5deg) skewX(-2deg) translateY(-4px) scale(1.05);
   }
 }
 </style>
